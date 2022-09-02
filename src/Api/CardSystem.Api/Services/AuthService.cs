@@ -24,7 +24,7 @@ public class AuthService
         _emailSender = emailSender;
     }
 
-    public async Task<AppUser?> RegisterUser(RegisterMessage message)
+    public async Task<UserMessage?> RegisterUser(RegisterMessage message)
     {
         var sameUsernameUser = await _userRepository.GetAllAsync(x => x.Username == message.Username);
         if (sameUsernameUser.Count > 0) return null;
@@ -37,8 +37,10 @@ public class AuthService
             PasswordHash = CryptoHelpers.GeneratePwdHash(message.Password)
         };
 
-        var addedUser = await _userRepository.AddAsync(user);
-        return addedUser;
+        user = await _userRepository.AddAsync(user);
+        return user is not null
+            ? new UserMessage(user.Username, user.LastName, user.FirstName)
+            : null;
     }
 
     public async Task<TokenMessage?> LogInUser(LoginMessage message)
