@@ -15,19 +15,25 @@ public class AuthService
     private readonly IAsyncEntityRepository<AppUser, int> _userRepository;
     private readonly IOptions<AuthOptions> _authOptions;
     private readonly IEmailSender _emailSender;
+    private readonly ILogger<AuthService> _logger;
 
     public AuthService(IAsyncEntityRepository<AppUser, int> userRepository,
-        IOptions<AuthOptions> authOptions, IEmailSender emailSender)
+        IOptions<AuthOptions> authOptions, IEmailSender emailSender, ILogger<AuthService> logger)
     {
         _userRepository = userRepository;
         _authOptions = authOptions;
         _emailSender = emailSender;
+        _logger = logger;
     }
 
     public async Task<UserMessage?> RegisterUser(RegisterMessage message)
     {
         var sameUsernameUser = await _userRepository.GetAllAsync(x => x.Username == message.Username);
-        if (sameUsernameUser.Count > 0) return null;
+        if (sameUsernameUser.Count > 0)
+        {
+            _logger.LogWarning("Duplicate username found");
+            return null;
+        }
         
         var user = new AppUser
         {
@@ -38,10 +44,13 @@ public class AuthService
         };
 
         user = await _userRepository.AddAsync(user);
-        await _userRepository.SaveChangesAsync();
-        return user is not null
-            ? new UserMessage(user.Username, user.LastName, user.FirstName)
-            : null;
+        if (await _userRepository.SaveChangesAsync() && user is not null)
+        {
+            _logger.LogInformation("Created new user {@User}", user);
+            return new UserMessage(user.Username, user.LastName, user.FirstName);
+        }
+
+        return null;
     }
 
     public async Task<TokenMessage?> LogInUser(LoginMessage message)
@@ -49,8 +58,12 @@ public class AuthService
         var possibleUsers = await _userRepository.GetAllAsync(x => x.Username == message.Username);
         var pwdHash = CryptoHelpers.GeneratePwdHash(message.Password);
         var user = possibleUsers.FirstOrDefault(u => u.PasswordHash == pwdHash);
-        
-        if (user is null) return null;
+
+        if (user is null)
+        {
+            _logger.LogWarning("User with username: {Username} not found", message.Username);
+            return null;
+        }
 
         var jwtContext = new TokenHelpers.JwtContext(_authOptions.Value.Secret,
             DateTime.UtcNow.AddMinutes(_authOptions.Value.ValidForMinutes), new List<Claim>
@@ -81,6 +94,7 @@ public class AuthService
             await _emailSender.SendEmail(user.Username, "Password changed", $"Your new password is {randomPwd}");
             user.LastPwdChangeTime = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
+            _logger.LogInformation("New password generated for User {@User}", user);
             return true;
         }
 
