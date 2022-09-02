@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.DataAccess", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.Utils", "src\Shared\CardSystem.Utils\CardSystem.Utils.csproj", "{8D0FEA0E-7140-4408-8FA1-686CE872113D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.Communication", "src\Shared\CardSystem.Communication\CardSystem.Communication.csproj", "{FC1DC94E-C3B4-4E96-8B52-A33C97073EE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,7 @@ Global
 		{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5} = {197CC1D3-5878-4319-81DF-5576F03DB974}
 		{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8} = {A3E1EB09-E980-44F6-B243-E6BC679AE013}
 		{8D0FEA0E-7140-4408-8FA1-686CE872113D} = {A3E1EB09-E980-44F6-B243-E6BC679AE013}
+		{FC1DC94E-C3B4-4E96-8B52-A33C97073EE2} = {A3E1EB09-E980-44F6-B243-E6BC679AE013}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F9618D84-C0E8-4EC6-9AFA-2385224D376B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -51,5 +54,9 @@ Global
 		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1DC94E-C3B4-4E96-8B52-A33C97073EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1DC94E-C3B4-4E96-8B52-A33C97073EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1DC94E-C3B4-4E96-8B52-A33C97073EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1DC94E-C3B4-4E96-8B52-A33C97073EE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
