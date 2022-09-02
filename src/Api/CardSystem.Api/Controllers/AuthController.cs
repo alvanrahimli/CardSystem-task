@@ -7,11 +7,11 @@ namespace CardSystem.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AccountController : ControllerBase
+public class AuthController : ControllerBase
 {
     private readonly AuthService _authService;
 
-    public AccountController(AuthService authService)
+    public AuthController(AuthService authService)
     {
         _authService = authService;
     }
