@@ -41,3 +41,28 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hc
 ### Get transactions
 GET http://localhost:5180/api/Transactions
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
+
+### Get profile
+GET http://localhost:5180/api/Profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
+
+### Update profile
+PUT http://localhost:5180/api/Profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
+Content-Type: application/json
+
+{
+  "firstName": "Ali",
+  "lastName": "Rahimov"
+}
+
+### Update password
+PUT http://localhost:5180/api/Profile/password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
+Content-Type: application/json
+
+{
+  "old": "Alvan1235",
+  "new": "Alvan1235",
+  "newConfirmed": "Alvan1235"
+}

@@ -20,5 +20,7 @@ public class MapperProfile : Profile
             .ForMember(b => b.Type, x => x.MapFrom(a => a.Type));
         
         CreateMap<Vendor, VendorMessage>();
+
+        CreateMap<AppUser, ProfileMessage>();
     }
 }
