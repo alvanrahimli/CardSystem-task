@@ -1,5 +1,6 @@
 ﻿using CardSystem.Api.Messages;
 using CardSystem.Api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CardSystem.Api.Controllers;
@@ -42,6 +43,13 @@ public class AccountController : ControllerBase
         if (!couldSendPwd)
             return Unauthorized("Could not send email");
 
+        return Ok();
+    }
+
+    [Authorize]
+    [HttpGet("test-auth")]
+    public ActionResult TestAuth()
+    {
         return Ok();
     }
 }

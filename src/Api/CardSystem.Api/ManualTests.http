@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
   "username": "alvan@rahim.li",
-  "password": "WIAUW1ZO"
+  "password": "F51YEAFW"
 }
 
 ### Renew pwd
@@ -26,3 +26,6 @@ Content-Type: application/json
   "email": "alvan@rahim.li"
 }
 
+### Test auth
+GET http://localhost:5180/api/Account/test-auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
