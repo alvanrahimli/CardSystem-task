@@ -37,6 +37,7 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<IEmailSender, MockEmailSender>();
 builder.Services.Configure<AuthOptions>(builder.Configuration.GetRequiredSection(AuthOptions.ConfigSection));
 builder.Services.Configure<EmailOptions>(builder.Configuration.GetRequiredSection(EmailOptions.ConfigSection));
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 
