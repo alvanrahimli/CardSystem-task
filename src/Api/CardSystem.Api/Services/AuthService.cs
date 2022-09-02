@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using CardSystem.Api.Messages;
 using CardSystem.Api.Options;
+using CardSystem.Communication.Abstract;
 using CardSystem.DataAccess.Abstract;
 using CardSystem.Domain.Models;
 using CardSystem.Services;
@@ -13,16 +14,21 @@ public class AuthService
 {
     private readonly IAsyncEntityRepository<AppUser, int> _userRepository;
     private readonly IOptions<AuthOptions> _authOptions;
+    private readonly IEmailSender _emailSender;
 
     public AuthService(IAsyncEntityRepository<AppUser, int> userRepository,
-        IOptions<AuthOptions> authOptions)
+        IOptions<AuthOptions> authOptions, IEmailSender emailSender)
     {
         _userRepository = userRepository;
         _authOptions = authOptions;
+        _emailSender = emailSender;
     }
 
     public async Task<AppUser?> RegisterUser(RegisterMessage message)
     {
+        var sameUsernameUser = await _userRepository.GetAllAsync(x => x.Username == message.Username);
+        if (sameUsernameUser.Count > 0) return null;
+        
         var user = new AppUser
         {
             FirstName = message.FirstName,
@@ -54,5 +60,23 @@ public class AuthService
         var token = TokenHelpers.GetJwt(jwtContext);
         return new TokenMessage(token);
     }
-    
+
+    public async Task<bool> RequestNewPwd(string username)
+    {
+        var user = await _userRepository.GetSingle(x => x.Username == username);
+        if (user is null)
+        {
+            return false;
+        }
+
+        var randomPwd = RandomHelpers.RandomString(8);
+        user.PasswordHash = CryptoHelpers.GeneratePwdHash(randomPwd);
+        if (await _userRepository.SaveChangesAsync())
+        {
+            await _emailSender.SendEmail(user.Username, "Password changed", $"Your new password is {randomPwd}");
+            return true;
+        }
+
+        return false;
+    }
 }

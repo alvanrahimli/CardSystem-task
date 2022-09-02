@@ -64,7 +64,7 @@ public class AsyncEntityRepository<TEntity, TId> : IAsyncEntityRepository<TEntit
         return await SaveChangesAsync();
     }
 
-    private async Task<bool> SaveChangesAsync()
+    public async Task<bool> SaveChangesAsync()
     {
         return await _context.SaveChangesAsync() > 0;
     }

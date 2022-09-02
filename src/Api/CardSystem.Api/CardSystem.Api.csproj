@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Shared\CardSystem.Communication\CardSystem.Communication.csproj" />
       <ProjectReference Include="..\..\Shared\CardSystem.DataAccess\CardSystem.DataAccess.csproj" />
       <ProjectReference Include="..\..\Shared\CardSystem.Domain\CardSystem.Domain.csproj" />
       <ProjectReference Include="..\..\Shared\CardSystem.Utils\CardSystem.Utils.csproj" />

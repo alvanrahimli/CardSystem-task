@@ -12,4 +12,5 @@ public interface IAsyncEntityRepository<TEntity, in TId> where TEntity : EntityB
     Task<TEntity?> UpdateAsync(TEntity entity);
     Task<List<TEntity>> UpdateRangeAsync(List<TEntity> entities);
     Task<bool> DeleteAsync(TId id);
+    Task<bool> SaveChangesAsync();
 }
