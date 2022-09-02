@@ -38,6 +38,7 @@ public class AuthService
         };
 
         user = await _userRepository.AddAsync(user);
+        await _userRepository.SaveChangesAsync();
         return user is not null
             ? new UserMessage(user.Username, user.LastName, user.FirstName)
             : null;
@@ -59,6 +60,8 @@ public class AuthService
                     DateTime.UtcNow.AddMinutes(_authOptions.Value.ValidForMinutes)
                         .ToString(CultureInfo.InvariantCulture))
             });
+        user.LastLoginTime = DateTime.UtcNow;
+        await _userRepository.UpdateAsync(user);
         var token = TokenHelpers.GetJwt(jwtContext);
         return new TokenMessage(token);
     }
@@ -76,6 +79,8 @@ public class AuthService
         if (await _userRepository.SaveChangesAsync())
         {
             await _emailSender.SendEmail(user.Username, "Password changed", $"Your new password is {randomPwd}");
+            user.LastPwdChangeTime = DateTime.UtcNow;
+            await _userRepository.UpdateAsync(user);
             return true;
         }
 

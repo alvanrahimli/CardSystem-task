@@ -8,15 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\..\Config\appsettings.Development.json">
-        <Link>appsettings.Development.json</Link>
-      </Content>
-      <Content Include="..\..\Config\appsettings.json">
-        <Link>appsettings.json</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\Shared\CardSystem.Communication\CardSystem.Communication.csproj" />
       <ProjectReference Include="..\..\Shared\CardSystem.DataAccess\CardSystem.DataAccess.csproj" />
       <ProjectReference Include="..\..\Shared\CardSystem.Domain\CardSystem.Domain.csproj" />
@@ -24,6 +15,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.8" />
     </ItemGroup>
 

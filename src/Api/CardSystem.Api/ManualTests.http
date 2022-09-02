@@ -1,0 +1,28 @@
+﻿### Register
+POST http://localhost:5180/api/Account/register
+Content-Type: application/json
+
+{
+  "username": "alvan@rahim.li",
+  "lastName": "Rahimli",
+  "firstName": "Alvan",
+  "password": "Alvan123"
+}
+
+### Login
+POST http://localhost:5180/api/Account/login
+Content-Type: application/json
+
+{
+  "username": "alvan@rahim.li",
+  "password": "WIAUW1ZO"
+}
+
+### Renew pwd
+POST http://localhost:5180/api/Account/new-password
+Content-Type: application/json
+
+{
+  "email": "alvan@rahim.li"
+}
+

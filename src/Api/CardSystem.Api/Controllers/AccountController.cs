@@ -39,8 +39,8 @@ public class AccountController : ControllerBase
     public async Task<ActionResult<RegisterMessage>> NewPassword(EmailMessage message)
     {
         var couldSendPwd = await _authService.RequestNewPwd(message.Email);
-        if (couldSendPwd)
-            return Unauthorized("Username/password combination is invalid");
+        if (!couldSendPwd)
+            return Unauthorized("Could not send email");
 
         return Ok();
     }
