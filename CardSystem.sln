@@ -1,8 +1,55 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E0BACF27-C449-4761-8303-61116A2FC879}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{398AA499-15C5-4D10-BF14-C6FB550C7DE4}"
+	ProjectSection(SolutionItems) = preProject
+		src\Config\appsettings.json = src\Config\appsettings.json
+		src\Config\appsettings.Development.json = src\Config\appsettings.Development.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A3E1EB09-E980-44F6-B243-E6BC679AE013}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{197CC1D3-5878-4319-81DF-5576F03DB974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.Domain", "src\Shared\CardSystem.Domain\CardSystem.Domain.csproj", "{F9618D84-C0E8-4EC6-9AFA-2385224D376B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.Api", "src\Api\CardSystem.Api\CardSystem.Api.csproj", "{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.DataAccess", "src\Shared\CardSystem.DataAccess\CardSystem.DataAccess.csproj", "{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSystem.Utils", "src\Shared\CardSystem.Utils\CardSystem.Utils.csproj", "{8D0FEA0E-7140-4408-8FA1-686CE872113D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{398AA499-15C5-4D10-BF14-C6FB550C7DE4} = {E0BACF27-C449-4761-8303-61116A2FC879}
+		{A3E1EB09-E980-44F6-B243-E6BC679AE013} = {E0BACF27-C449-4761-8303-61116A2FC879}
+		{197CC1D3-5878-4319-81DF-5576F03DB974} = {E0BACF27-C449-4761-8303-61116A2FC879}
+		{F9618D84-C0E8-4EC6-9AFA-2385224D376B} = {A3E1EB09-E980-44F6-B243-E6BC679AE013}
+		{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5} = {197CC1D3-5878-4319-81DF-5576F03DB974}
+		{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8} = {A3E1EB09-E980-44F6-B243-E6BC679AE013}
+		{8D0FEA0E-7140-4408-8FA1-686CE872113D} = {A3E1EB09-E980-44F6-B243-E6BC679AE013}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9618D84-C0E8-4EC6-9AFA-2385224D376B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9618D84-C0E8-4EC6-9AFA-2385224D376B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9618D84-C0E8-4EC6-9AFA-2385224D376B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9618D84-C0E8-4EC6-9AFA-2385224D376B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8039CB7-B78B-4EF3-8B0E-3384704DBCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B2F82D-9455-4A22-8A56-BE19EAF2BCA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0FEA0E-7140-4408-8FA1-686CE872113D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
