@@ -15,5 +15,10 @@ public class MapperProfile : Profile
 
         CreateMap<Account, AccountMessage>()
             .ForMember(b => b.Type, x => x.MapFrom(a => a.Type.ToString()));
+
+        CreateMap<Transaction, TransactionMessage>()
+            .ForMember(b => b.Type, x => x.MapFrom(a => a.Type));
+        
+        CreateMap<Vendor, VendorMessage>();
     }
 }
