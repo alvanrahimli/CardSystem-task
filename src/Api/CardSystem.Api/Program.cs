@@ -33,6 +33,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 builder.Services.AddControllers();
+builder.Services.AddSwagger();
 builder.Services.AddScoped(typeof(IAsyncEntityRepository<,>), typeof(AsyncEntityRepository<,>));
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<IEmailSender, MockEmailSender>();
@@ -43,6 +44,9 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 var app = builder.Build();
 
 app.ConfigureExceptionHandler(app.Logger);
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseAuthentication();
 app.UseAuthorization();
