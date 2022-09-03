@@ -26,10 +26,62 @@ public class CardsController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<CardMessage>>> GetAccounts()
+    public async Task<ActionResult<List<CardMessage>>> GetCards()
     {
         var userId = User.GetUserId();
         var cards = await _cardRepository.GetAllAsync(c => c.UserId == userId);
         return Ok(_mapper.Map<List<CardMessage>>(cards));
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<CardMessage>> CreateCard(CardMessage message)
+    {
+        var duplicateNumber = await _cardRepository.GetSingle(c => c.CardNumber == message.CardNumber);
+        if (duplicateNumber is not null) return StatusCode(409, "Duplicate card number");
+
+        if (message is not { CardNumber.Length: 16, Type: { } })
+        {
+            return BadRequest("Invalid model entered");
+        }
+        
+        var parsedType = Enum.Parse<CardType>(message.Type);
+        var card = new Card
+        {
+            UserId = User.GetUserId(),
+            CardNumber = message.CardNumber,
+            IsValid = true,
+            State = CardState.Active,
+            Type = parsedType,
+            Currency = parsedType is CardType.Currency
+                ? Enum.Parse<Currency>(message.Currency!)
+                : null
+        };
+        card = await _cardRepository.AddAsync(card);
+        await _cardRepository.SaveChangesAsync();
+        if (card is null)
+        {
+            return UnprocessableEntity("Could not create card");
+        }
+
+        return Ok(_mapper.Map<CardMessage>(card));
+    }
+
+    [HttpPut]
+    public async Task<ActionResult<CardMessage>> UpdateCard(CardMessage message)
+    {
+        var card = await _cardRepository.GetSingle(c => c.Id == message.Id);
+        if (card is null) return NotFound($"Card not found with Id: {message.Id}");
+        if (card.UserId != User.GetUserId()) return NotFound();
+
+        if (message.State != null) card.State = Enum.Parse<CardState>(message.State);
+        if (message.Type != null) card.Type = Enum.Parse<CardType>(message.Type);
+        if (message.IsValid != null) card.IsValid = (bool)message.IsValid;
+        if (message.Currency != null && card.Type == CardType.Currency)
+            card.Currency = Enum.Parse<Currency>(message.Currency); 
+        
+        card = await _cardRepository.UpdateAsync(card);
+        if (card is null) return UnprocessableEntity("Could not update card");
+
+        return Ok(_mapper.Map<CardMessage>(card));
     }
 }

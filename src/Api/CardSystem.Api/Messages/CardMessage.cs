@@ -1,9 +1,9 @@
 ﻿namespace CardSystem.Api.Messages;
 
 public record CardMessage(
-    int Id,
+    int? Id,
     string CardNumber,
-    bool IsValid,
-    string State,
-    string Type,
+    bool? IsValid,
+    string? State,
+    string? Type,
     string? Currency);

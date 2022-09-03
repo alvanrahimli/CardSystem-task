@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
   "username": "alvan@rahim.li",
-  "password": "F51YEAFW"
+  "password": "XB2WYL9J"
 }
 
 ### Renew pwd
@@ -36,7 +36,30 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hc
 
 ### Get cards
 GET http://localhost:5180/api/Cards
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+
+### Create card
+POST http://localhost:5180/api/Cards
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+Content-Type: application/json
+
+{
+  "cardNumber": "1515161619191818",
+  "type": "Currency",
+  "currency": "Eur"
+}
+
+### Update card
+PUT http://localhost:5180/api/Cards
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+Content-Type: application/json
+
+{
+  "id": 2,
+  "type": "Currency",
+  "currency": "Eur"
+}
+
 
 ### Get transactions
 GET http://localhost:5180/api/Transactions
