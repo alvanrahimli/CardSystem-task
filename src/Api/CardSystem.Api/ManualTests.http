@@ -63,7 +63,23 @@ Content-Type: application/json
 
 ### Get transactions
 GET http://localhost:5180/api/Transactions
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMi8yMDIyIDIzOjQxOjQ5IiwiZXhwIjoxNjYyMTYyMTA5fQ.NqtFosfafRpFN-VGHdcscuwL1FeuA_pquxoJgllnQCU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+
+### Create transactions
+POST http://localhost:5180/api/Transactions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+Content-Type: application/json
+
+{
+  "amount": 500,
+  "cardNumber": "1891473659381623",
+  "vendor": {
+    "name": "Some vendor for testing",
+    "addresses": ["address1", "address2"],
+    "contacts": ["phone1"]
+  }
+}
+
 
 ### Get profile
 GET http://localhost:5180/api/Profile

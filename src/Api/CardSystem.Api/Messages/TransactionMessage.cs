@@ -2,8 +2,8 @@
 
 public record TransactionMessage(
     int Id,
-    DateTime Timestamp,
+    DateTime? Timestamp,
     decimal Amount,
-    string Type,
+    string? Type,
     string CardNumber,
     VendorMessage Vendor);
