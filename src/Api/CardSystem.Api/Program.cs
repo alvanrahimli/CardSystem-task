@@ -1,4 +1,5 @@
 using System.Text;
+using CardSystem.Api.Extensions;
 using CardSystem.Api.Options;
 using CardSystem.Api.Services;
 using CardSystem.Communication.Abstract;
@@ -40,6 +41,8 @@ builder.Services.Configure<EmailOptions>(builder.Configuration.GetRequiredSectio
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
+
+app.ConfigureExceptionHandler(app.Logger);
 
 app.UseAuthentication();
 app.UseAuthorization();
