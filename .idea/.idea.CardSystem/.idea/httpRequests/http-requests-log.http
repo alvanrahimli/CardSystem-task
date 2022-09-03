@@ -1,4 +1,49 @@
-﻿GET http://localhost:5180/api/Transactions
+﻿POST http://localhost:5180/api/Accounts/2/cash-in
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+Content-Type: application/json
+
+{
+  "amount": 999
+}
+
+<> 2022-09-03T132108.200.json
+
+###
+
+GET http://localhost:5180/api/Accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+
+<> 2022-09-03T131622.200.json
+
+###
+
+POST http://localhost:5180/api/Accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+Content-Type: application/json
+
+{
+  "balance": 12,
+  "type": "Currency"
+}
+
+<> 2022-09-03T131619.200.json
+
+###
+
+POST http://localhost:5180/api/Accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
+Content-Type: application/json
+
+{
+  "balance": 24,
+  "type": "Deposit"
+}
+
+<> 2022-09-03T131601.200.json
+
+###
+
+GET http://localhost:5180/api/Transactions
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIwOS8wMy8yMDIyIDExOjU0OjM5IiwiZXhwIjoxNjYyMjA2MDc5fQ._bLF23EkhMFQEzMJTiINAlL4671sBUgLMXm14phji9I
 
 <> 2022-09-03T131104.200.json
@@ -498,57 +543,6 @@ Content-Type: application/json
 {
   "email": "alvan@rahim.li"
 }
-
-###
-
-POST http://localhost:5180/api/Account/new-password
-Content-Type: application/json
-
-{
-  "email": "alvan@rahim.li"
-}
-
-<> 2022-09-03T002325.401.txt
-
-###
-
-POST http://localhost:5180/api/Account/login
-Content-Type: application/json
-
-{
-  "username": "alvan@rahim.li",
-  "password": "Alvan123"
-}
-
-<> 2022-09-03T002010.200.json
-
-###
-
-POST http://localhost:5180/api/Account/register
-Content-Type: application/json
-
-{
-  "username": "alvan@rahim.li",
-  "lastName": "Rahimli",
-  "firstName": "Alvan",
-  "password": "Alvan123"
-}
-
-<> 2022-09-03T001934.200.json
-
-###
-
-POST http://localhost:5180/api/Account/register
-Content-Type: application/json
-
-{
-  "username": "alvan@rahim.li",
-  "lastName": "Rahimli",
-  "firstName": "Alvan",
-  "password": "Alvan123"
-}
-
-<> 2022-09-03T001755.200.json
 
 ###
 
